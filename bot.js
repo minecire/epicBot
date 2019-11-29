@@ -303,6 +303,31 @@ client.on('message', (recievedMessage) => {
 			return;
 		}
 	}
+	if(recievedMessage.content.indexOf("c4") == 0){
+		if(c4_bw[feo(recievedMessage.guild.id,bw)][1] == 0){
+			if(contains(recievedMessage.channel.id,c4_blacklist) >= 0){
+				return;
+			}
+		}
+		if(c4_bw[feo(recievedMessage.guild.id,bw)][1] == 1){
+			if(-1 == contains(recievedMessage.channel.id,c4_whitelist)){
+				return;
+			}
+		}
+	}
+	if(recievedMessage.content.indexOf("tt") == 0){
+		if(tt_bw[feo(recievedMessage.guild.id,bw)][1] == 0){
+			if(contains(recievedMessage.channel.id,tt_blacklist) >= 0){
+				return;
+			}
+		}
+		if(tt_bw[feo(recievedMessage.guild.id,bw)][1] == 1){
+			if(-1 == contains(recievedMessage.channel.id,tt_whitelist)){
+				return;
+			}
+		}
+	}
+	}
     var currentPlayer;
     var addName = true;
     for(var i = 0; i < players.length; i++){
@@ -430,31 +455,6 @@ client.on('message', (recievedMessage) => {
 	}
 	if(recievedMessage.author == client.user){
 		return;
-	}
-	if(recievedMessage.content.indexOf("c4") == 0){
-		if(c4_bw[feo(recievedMessage.guild.id,bw)][1] == 0){
-			if(contains(recievedMessage.channel.id,c4_blacklist) >= 0){
-				return;
-			}
-		}
-		if(c4_bw[feo(recievedMessage.guild.id,bw)][1] == 1){
-			if(-1 == contains(recievedMessage.channel.id,c4_whitelist)){
-				return;
-			}
-		}
-	}
-	if(recievedMessage.content.indexOf("tt") == 0){
-		if(tt_bw[feo(recievedMessage.guild.id,bw)][1] == 0){
-			if(contains(recievedMessage.channel.id,tt_blacklist) >= 0){
-				return;
-			}
-		}
-		if(tt_bw[feo(recievedMessage.guild.id,bw)][1] == 1){
-			if(-1 == contains(recievedMessage.channel.id,tt_whitelist)){
-				return;
-			}
-		}
-	}
 	}
 	if(recievedMessage.content.indexOf("epic help") == 0){
         if(recievedMessage.content.split(" ")[2] == "ms"){
