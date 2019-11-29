@@ -815,7 +815,7 @@ client.on('message', (recievedMessage) => {
 			if(!alread){
 			var game = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],recievedMessage.channel];
 			c4_gamer1 = recievedMessage.author;
-			c4_gamer2 = recievedMessage.content.split(' ')[1];
+			c4_gamer2 = recievedMessage.content.split(' ')[3];
 			var gamerReal = false;
 			for(var j = 0; j < recievedMessage.guild.memberCount; j++){
 				if(recievedMessage.guild.members.array()[j] == c4_gamer2){
@@ -848,11 +848,11 @@ client.on('message', (recievedMessage) => {
 		}
 		if(!running){
 			recievedMessage.channel.send("There is currently no game running in this channel!");
-			return
+			return;
 
 		}
 		c4_games.splice(gamenum,1);
-		recievedMessage.channel.send("Game has been stopped.")
+		recievedMessage.channel.send("Game has been stopped.");
 	}
 	if(recievedMessage.content < 7 && recievedMessage.content >= 0){
 		var game;
@@ -866,7 +866,7 @@ client.on('message', (recievedMessage) => {
 			}
 		}
 		if(!running){
-			return
+			return;
 
 		}
 		if(game[9] == 1 && recievedMessage.author == game[7]){
@@ -876,11 +876,11 @@ client.on('message', (recievedMessage) => {
 					c4_drawGame(recievedMessage, game);
 					console.log(c4_testWin(game));
 					if(c4_testWin(game) == 1){
-						recievedMessage.channel.send(game[7]+" Wins!")
+						recievedMessage.channel.send(game[7]+" Wins!");
 						c4_games.splice(gamenum,1);
 					}
 					if(c4_testWin(game) == -1){
-						recievedMessage.channel.send(game[7]+" And "+game[8]+" Tied!")
+						recievedMessage.channel.send(game[7]+" And "+game[8]+" Tied!");
 						c4_games.splice(gamenum,1);
 					}
 					game[9] = 2
@@ -898,11 +898,11 @@ client.on('message', (recievedMessage) => {
 					c4_drawGame(recievedMessage, game);
 					game[9] = 1;
 					if(c4_testWin(game) == 2){
-						recievedMessage.channel.send(game[8]+" Wins!")
+						recievedMessage.channel.send(game[8]+" Wins!");
 						c4_games.splice(gamenum,1);
 					}
 					if(c4_testWin(game) == -1){
-						recievedMessage.channel.send(game[7]+" And "+game[8]+" Tied!")
+						recievedMessage.channel.send(game[7]+" And "+game[8]+" Tied!");
 						c4_games.splice(gamenum,1);
 					}
 					break;
