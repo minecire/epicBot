@@ -416,16 +416,16 @@ client.on('message', (recievedMessage) => {
 	if(recievedMessage.content.indexOf("epic ms") == 0){
 		
 		if(recievedMessage.content.split(" ")[2] == "gen"){
-			var w = recievedMessage.content.split(" ")[2];
-			var h = recievedMessage.content.split(" ")[3];
-			var a = recievedMessage.content.split(" ")[4];
-			generateBoard(w, h, a, recievedMessage.channel, recievedMessage.content.split(" ")[5] == "h");
+			var w = recievedMessage.content.split(" ")[3];
+			var h = recievedMessage.content.split(" ")[4];
+			var a = recievedMessage.content.split(" ")[5];
+			generateBoard(w, h, a, recievedMessage.channel, recievedMessage.content.split(" ")[6] == "h");
 		}
 		else if(recievedMessage.content.split(" ")[2] == "hex"){
-			var w = recievedMessage.content.split(" ")[2];
-			var h = recievedMessage.content.split(" ")[3];
-			var a = recievedMessage.content.split(" ")[4];
-			generateHexBoard(w, h, a, recievedMessage.channel, recievedMessage.content.split(" ")[5] == "h");
+			var w = recievedMessage.content.split(" ")[3];
+			var h = recievedMessage.content.split(" ")[4];
+			var a = recievedMessage.content.split(" ")[5];
+			generateHexBoard(w, h, a, recievedMessage.channel, recievedMessage.content.split(" ")[6] == "h");
 		}
 	}
 	if(recievedMessage.author == client.user){
