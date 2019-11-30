@@ -341,7 +341,8 @@ client.on('message', (recievedMessage) => {
         players.push(currentPlayer);
     }
     var currentChannel;
-    var addChannel = true;
+	var addChannel = true;
+	if(channels != undefined){
     for(var i = 0; i < channels.length; i++){
         if(channels[i].id == recievedMessage.channel.id){
             addChannel = false;
@@ -351,7 +352,11 @@ client.on('message', (recievedMessage) => {
     if(addChannel){
         currentChannel = {id:recievedMessage.channel.id, question:"", answer:"", timeout:0, wait:0};
         channels.push(currentChannel);
-    }
+	}
+	}
+	else{
+		channels.push(currentChannel);
+	}	
     // sf.get(`https://www.reddit.com/r/trivia/random.json?limit=1`).then(res => {
     // recievedMessage.channel.send(res.body[0].data.children[0].data.selftext);
     // //console.log(res.body[1].data.children);
