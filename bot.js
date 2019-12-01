@@ -355,7 +355,6 @@ client.on('message', (recievedMessage) => {
         currentChannel = {id:recievedMessage.channel.id, question:"", answer:"", timeout:0, wait:0};
         channels.push(currentChannel);
 	}
-	}
     // sf.get(`https://www.reddit.com/r/trivia/random.json?limit=1`).then(res => {
     // recievedMessage.channel.send(res.body[0].data.children[0].data.selftext);
     // //console.log(res.body[1].data.children);
